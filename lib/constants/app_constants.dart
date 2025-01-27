@@ -8,6 +8,7 @@ const kLightGrey = Color(0x97BCBABA);
 const kDarkGrey = Color(0xFF9B9B9B);
 const kOrange = Color(0xfff55631);
 const kLightBlue = Color(0xff3663e3);
+const kLightBlue2 = Color.fromARGB(255, 102, 168, 244);
 const kDarkBlue = Color(0xff1c153e);
 const kLightPurple = Color(0xff6352c5);
 const kDarkPurple = Color(0xff6352c5);

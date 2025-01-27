@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:practice_job_app_fl/constants/app_constants.dart';
 import 'package:practice_job_app_fl/views/common/exports.dart';
 

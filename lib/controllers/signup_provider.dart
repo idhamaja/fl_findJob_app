@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
 class SignUpNotifier extends ChangeNotifier {
 // trigger to hide and unhide the password
   bool _isObsecure = true;
@@ -36,12 +34,12 @@ class SignUpNotifier extends ChangeNotifier {
   final signupFormKey = GlobalKey<FormState>();
 
   bool passwordValidator(String password) {
-  if (password.isEmpty) return false;
-  String pattern =
-      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
-  RegExp regex = RegExp(pattern);
-  return regex.hasMatch(password);
-}
+    if (password.isEmpty) return false;
+    String pattern =
+        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+    RegExp regex = RegExp(pattern);
+    return regex.hasMatch(password);
+  }
 
   bool validateAndSave() {
     final form = signupFormKey.currentState;
@@ -53,4 +51,11 @@ class SignUpNotifier extends ChangeNotifier {
     }
   }
 
+  bool _obscureText = true;
+
+  bool get obscureText => _obscureText;
+  set obscureText(bool newState) {
+    _obscureText = newState;
+    notifyListeners();
+  }
 }
