@@ -27,7 +27,10 @@ class JobHorizontalTile extends StatelessWidget {
           ),
           width: widthAppConstant * 0.7,
           height: hieghtAppConstant * 0.27,
-          color: kLightGrey,
+          decoration: BoxDecoration(
+            color: kLightGrey,
+            borderRadius: BorderRadius.circular(10.0),
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -35,7 +38,7 @@ class JobHorizontalTile extends StatelessWidget {
                 children: [
                   CircleAvatar(
                     backgroundImage: AssetImage(
-                      "assets/images/user.png",
+                      "assets/images/Facebook.png",
                     ),
                   ),
                   WidthSpacer(size: 15),
@@ -45,7 +48,7 @@ class JobHorizontalTile extends StatelessWidget {
                   ),
                 ],
               ),
-              HeightSpacer(size: 15),
+              const HeightSpacer(size: 15),
               ReusableText(
                 text: "Senior Flutter Developer",
                 style: appstyle(20, kDark, FontWeight.w600),
@@ -54,24 +57,29 @@ class JobHorizontalTile extends StatelessWidget {
                 text: "Washington DC",
                 style: appstyle(16, kDark, FontWeight.w600),
               ),
+              const HeightSpacer(size: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  ReusableText(
-                    text: "15k",
-                    style: appstyle(20, kDark, FontWeight.w600),
+                  Row(
+                    children: [
+                      ReusableText(
+                        text: "15k",
+                        style: appstyle(20, kDark, FontWeight.w600),
+                      ),
+                      ReusableText(
+                        text: "/monthly",
+                        style: appstyle(23, kDarkGrey, FontWeight.w600),
+                      ),
+                    ],
                   ),
-                  ReusableText(
-                    text: "/monthly",
-                    style: appstyle(23, kDark, FontWeight.w600),
-                  ),
+                  CircleAvatar(
+                    radius: 18,
+                    backgroundColor: kLight,
+                    child: const Icon(Ionicons.chevron_forward),
+                  )
                 ],
               ),
-              CircleAvatar(
-                radius: 10,
-                backgroundColor: kLight,
-                child: Icon(Ionicons.chevron_forward),
-              )
             ],
           ),
         ),

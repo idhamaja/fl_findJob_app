@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:practice_job_app_fl/constants/app_constants.dart';
 import 'package:practice_job_app_fl/views/common/app_bar.dart';
 import 'package:practice_job_app_fl/views/common/app_style.dart';
@@ -7,6 +8,8 @@ import 'package:practice_job_app_fl/views/common/drawer/drawerWidget.dart';
 import 'package:practice_job_app_fl/views/common/heading_widget.dart';
 import 'package:practice_job_app_fl/views/common/height_spacer.dart';
 import 'package:practice_job_app_fl/views/common/search.dart';
+import 'package:practice_job_app_fl/views/common/vertical_tile.dart';
+import 'package:practice_job_app_fl/views/ui/jobs/job_page.dart';
 import 'package:practice_job_app_fl/views/ui/jobs/widgets/horizontal_tile.dart';
 
 class HomePage extends StatefulWidget {
@@ -61,20 +64,32 @@ class _HomePageState extends State<HomePage> {
                 text: "Popular Jobs",
                 onTap: () {},
               ),
-              HeightSpacer(size: 15),
+              const HeightSpacer(size: 15),
               SizedBox(
                 height: hieghtAppConstant * 0.28,
                 child: ListView.builder(
                   itemCount: 4,
+                  scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return JobHorizontalTile();
+                    return JobHorizontalTile(
+                      onTap: () {
+                        Get.to(
+                          () => const JobPage(title: "Facebook", id: "12"),
+                        );
+                      },
+                    );
                   },
                 ),
               ),
+              const HeightSpacer(size: 20),
               HeadingWidget(
                 text: "Recently Posted",
                 onTap: () {},
               ),
+              const HeightSpacer(size: 20),
+              VerticalTile(
+                onTap: () {},
+              )
             ],
           ),
         ),
