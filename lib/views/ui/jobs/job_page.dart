@@ -51,37 +51,48 @@ class _JobPageState extends State<JobPage> {
               padding: EdgeInsets.zero,
               children: [
                 HeightSpacer(size: 30),
+
+                // Profile Job Section
+                // Profile Job Section (Perbaikan)
                 Container(
                   width: widthAppConstant,
-                  height: hieghtAppConstant * 0.27,
-                  color: kLightGrey,
+                  height: hieghtAppConstant * 0.32, // Perbesar tinggi container
+                  decoration: BoxDecoration(
+                    color: kLightGrey,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: EdgeInsets.symmetric(
+                      vertical: 10.h), // Kurangi padding vertikal
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisSize:
+                        MainAxisSize.min, // Tambahkan ini agar fleksibel
+                    mainAxisAlignment:
+                        MainAxisAlignment.start, // Ubah menjadi start
                     children: [
                       const CircleAvatar(
                         backgroundImage: AssetImage("assets/images/user.png"),
+                        radius: 40,
                       ),
-                      const HeightSpacer(size: 10),
+                      HeightSpacer(size: 10),
                       ReusableText(
                         text: "Senior Flutter Developer",
                         style: appstyle(22, kDark, FontWeight.w600),
                       ),
-                      const HeightSpacer(size: 5),
+                      HeightSpacer(size: 5),
                       ReusableText(
                         text: "Jakarta",
                         style: appstyle(16, kDarkGrey, FontWeight.normal),
                       ),
-                      HeightSpacer(size: 15),
+                      HeightSpacer(size: 10), // Tambahkan ruang ekstra
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 50,
-                        ),
+                        padding: EdgeInsets.symmetric(horizontal: 50.w),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             CustomOutlineBtn(
                               width: widthAppConstant * 0.26,
-                              height: hieghtAppConstant * 0.04,
+                              height: hieghtAppConstant *
+                                  0.05, // Sesuaikan tinggi tombol
                               color2: kLight,
                               text: "Full-time",
                               color: kOrange,
@@ -92,59 +103,92 @@ class _JobPageState extends State<JobPage> {
                                   text: "10k",
                                   style: appstyle(21, kDark, FontWeight.w600),
                                 ),
-                                SizedBox(
-                                  width: widthAppConstant * 0.2,
-                                  child: ReusableText(
-                                    text: "/monthly",
-                                    style: appstyle(15, kDark, FontWeight.w600),
-                                  ),
+                                SizedBox(width: 8.w),
+                                ReusableText(
+                                  text: "/monthly",
+                                  style: appstyle(15, kDark, FontWeight.w600),
                                 ),
                               ],
-                            )
+                            ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
-                const HeightSpacer(size: 20),
+
+                HeightSpacer(size: 20),
+
+                // Job Description Section
                 ReusableText(
                   text: "Job Description",
                   style: appstyle(22, kDark, FontWeight.w600),
                 ),
-                const HeightSpacer(size: 10),
-                Text(
-                  desc,
-                  textAlign: TextAlign.justify,
-                  maxLines: 8,
-                  style: appstyle(16, kDarkGrey, FontWeight.normal),
+                HeightSpacer(size: 10),
+                Container(
+                  padding: EdgeInsets.all(12.w),
+                  decoration: BoxDecoration(
+                    color: kLightGrey,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Text(
+                    desc,
+                    textAlign: TextAlign.justify,
+                    maxLines: 8,
+                    style: appstyle(16, kDarkGrey, FontWeight.normal),
+                  ),
                 ),
-                const HeightSpacer(size: 20),
+
+                HeightSpacer(size: 20),
+
+                // Job Requirements Section
                 ReusableText(
                   text: "Requirements",
                   style: appstyle(22, kDark, FontWeight.w600),
                 ),
-                const HeightSpacer(size: 10),
-                SizedBox(
-                  height: hieghtAppConstant * 0.6,
-                  child: ListView.builder(
-                    itemCount: requirements.length,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      final req = requirements[index];
-                      String bullet = "\u2022";
-                      return Text(
-                        "$bullet $req\n",
-                        maxLines: 4,
-                        textAlign: TextAlign.justify,
-                        style: appstyle(16, kDarkGrey, FontWeight.normal),
-                      );
-                    },
+                HeightSpacer(size: 10),
+                Container(
+                  padding: EdgeInsets.all(12.w),
+                  decoration: BoxDecoration(
+                    color: kLightGrey,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: SizedBox(
+                    height: hieghtAppConstant * 0.6,
+                    child: ListView.builder(
+                      itemCount: requirements.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        final req = requirements[index];
+                        return Padding(
+                          padding: EdgeInsets.symmetric(vertical: 4.h),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("• ",
+                                  style: appstyle(
+                                      16, kDarkGrey, FontWeight.normal)),
+                              Expanded(
+                                child: Text(
+                                  req,
+                                  textAlign: TextAlign.justify,
+                                  style: appstyle(
+                                      16, kDarkGrey, FontWeight.normal),
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
-                const HeightSpacer(size: 20),
+
+                HeightSpacer(size: 20),
               ],
             ),
+
+            // Apply Now Button
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
@@ -158,7 +202,7 @@ class _JobPageState extends State<JobPage> {
                   color: kLight,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

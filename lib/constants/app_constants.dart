@@ -32,7 +32,10 @@ String desc =
 
 List<String> skills = [
   "Node JS",
-  "Java SpringBoot",
+  "Laravel 11",
+  "PHP Native",
+  "Javascript",
+  "React Native",
   "Flutter and Dart",
   "Firebase",
   "AWS",
