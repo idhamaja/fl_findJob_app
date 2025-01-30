@@ -11,6 +11,7 @@ import 'package:practice_job_app_fl/views/common/search.dart';
 import 'package:practice_job_app_fl/views/common/vertical_tile.dart';
 import 'package:practice_job_app_fl/views/ui/jobs/job_page.dart';
 import 'package:practice_job_app_fl/views/ui/jobs/widgets/horizontal_tile.dart';
+import 'package:practice_job_app_fl/views/ui/search/searchpage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -56,7 +57,7 @@ class _HomePageState extends State<HomePage> {
               const HeightSpacer(size: 40),
               SearchWidget(
                 onTap: () {
-                  // Handle search tap
+                  Get.to(() => const SearchPage());
                 },
               ),
               HeightSpacer(size: 30),
