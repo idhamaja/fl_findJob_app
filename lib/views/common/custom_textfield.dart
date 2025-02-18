@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
     this.validator,
     this.suffixIcon,
     this.obscureText,
+    this.borderRadius,
   });
 
   final TextEditingController controller;
@@ -19,9 +20,12 @@ class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validator;
   final Widget? suffixIcon;
   final bool? obscureText;
+  final BorderRadius? borderRadius;
 
   @override
   Widget build(BuildContext context) {
+    final defaultBorderRadius = borderRadius ?? BorderRadius.circular(10.0);
+
     return Container(
       color: kLightGrey,
       child: TextFormField(
@@ -31,27 +35,29 @@ class CustomTextField extends StatelessWidget {
           hintText: hintText,
           suffixIcon: suffixIcon,
           hintStyle: appstyle(14, kDarkGrey, FontWeight.w500),
-          errorBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.zero,
+          errorBorder: OutlineInputBorder(
+            borderRadius: defaultBorderRadius,
             borderSide: BorderSide(color: Colors.red, width: 0.5),
           ),
-          focusedBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.zero,
+          focusedBorder: OutlineInputBorder(
+            borderRadius: defaultBorderRadius,
             borderSide: BorderSide(color: Colors.transparent, width: 0),
           ),
-          focusedErrorBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.zero,
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: defaultBorderRadius,
             borderSide: BorderSide(color: Colors.red, width: 0.5),
           ),
           disabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.zero,
+            borderRadius: defaultBorderRadius,
             borderSide: BorderSide(color: kDarkGrey, width: 0.5),
           ),
-          enabledBorder: const OutlineInputBorder(
-            borderRadius: BorderRadius.zero,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: defaultBorderRadius,
             borderSide: BorderSide(color: Colors.transparent, width: 0.5),
           ),
-          border: InputBorder.none,
+          border: OutlineInputBorder(
+            borderRadius: defaultBorderRadius,
+          ),
         ),
         controller: controller,
         cursorHeight: 25,
