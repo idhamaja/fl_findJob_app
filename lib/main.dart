@@ -1,7 +1,9 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:practice_job_app_fl/controllers/exports.dart';
+import 'package:practice_job_app_fl/firebase_options.dart';
 import 'package:practice_job_app_fl/views/ui/auth/login.dart';
 import 'package:practice_job_app_fl/views/ui/auth/update_user.dart';
 import 'package:practice_job_app_fl/views/ui/mainscreen.dart';
@@ -15,6 +17,7 @@ Widget defaultHome = const OnBoardingScreen();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final entryPoint = prefs.getBool('entrypoint') ?? false;
@@ -33,7 +36,7 @@ void main() async {
     ChangeNotifierProvider(create: (context) => SignUpNotifier()),
     ChangeNotifierProvider(create: (context) => JobsNotifier()),
     ChangeNotifierProvider(create: (context) => BookMarkNotifier()),
-    ChangeNotifierProvider(create: (context) => ImageUpoader()),
+    ChangeNotifierProvider(create: (context) => ImageUploader()),
     ChangeNotifierProvider(create: (context) => ProfileNotifier()),
   ], child: const MyApp()));
 }

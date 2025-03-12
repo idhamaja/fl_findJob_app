@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "991036458852",
+    "project_id": "my-find-job-apps",
+    "storage_bucket": "my-find-job-apps.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991036458852:android:6899f659fc3fbdef4d1c71",
+        "android_client_info": {
+          "package_name": "com.example.practice_job_app_fl"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq0RSUK9QZsDsMkPon514K6lsCUHp8uKs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

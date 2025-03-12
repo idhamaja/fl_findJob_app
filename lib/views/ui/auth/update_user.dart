@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:practice_job_app_fl/controllers/exports.dart';
@@ -53,15 +55,38 @@ class _PersonalDetailsState extends State<PersonalDetails> {
                     text: "Personal Details",
                     style: appstyle(35, kDark, FontWeight.bold),
                   ),
-                  GestureDetector(
-                    onTap: null,
-                    child: CircleAvatar(
-                      backgroundColor: kLightBlue,
-                      child: const Center(
-                        child: Icon(Icons.photo_filter_rounded),
-                      ),
-                    ),
-                  ),
+                  Consumer<ImageUploader>(
+                    builder: (context, imageUploader, child) {
+                      return imageUploader.imageFile.isEmpty
+                          ? GestureDetector(
+                              onTap: () {
+                                imageUploader.pickImage();
+                              },
+                              child: CircleAvatar(
+                                backgroundColor: kLightBlue,
+                                child: const Center(
+                                  child: Icon(Icons.photo_filter_rounded),
+                                ),
+                              ),
+                            )
+                          : GestureDetector(
+                              onTap: () {
+                                imageUploader.imageFile.clear();
+                                setState(() {
+                                  
+                                });
+                              },
+                              child: CircleAvatar(
+                                backgroundColor: kLightBlue,
+                                backgroundImage: FileImage(
+                                  File(
+                                    imageUploader.imageFile[0],
+                                  ),
+                                ),
+                              ),
+                            );
+                    },
+                  )
                 ],
               ),
               const HeightSpacer(size: 20),
