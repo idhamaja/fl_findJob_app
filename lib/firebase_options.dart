@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -30,10 +27,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -71,4 +65,23 @@ class DefaultFirebaseOptions {
     storageBucket: 'my-find-job-apps.firebasestorage.app',
     iosBundleId: 'com.example.practiceJobAppFl',
   );
+
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBVE_DwD9EJoJRf2wzJsMF4Qa_AjDo3_fU',
+    appId: '1:991036458852:web:cf3947fa618e594f4d1c71',
+    messagingSenderId: '991036458852',
+    projectId: 'my-find-job-apps',
+    authDomain: 'my-find-job-apps.firebaseapp.com',
+    storageBucket: 'my-find-job-apps.firebasestorage.app',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyBVE_DwD9EJoJRf2wzJsMF4Qa_AjDo3_fU',
+    appId: '1:991036458852:web:39abaf15ac40e3984d1c71',
+    messagingSenderId: '991036458852',
+    projectId: 'my-find-job-apps',
+    authDomain: 'my-find-job-apps.firebaseapp.com',
+    storageBucket: 'my-find-job-apps.firebasestorage.app',
+  );
+
 }
